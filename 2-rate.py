@@ -9,17 +9,18 @@ times = 50
 step = 10
 
 result = []
-outf = open("result.txt", "w")
+outf = open("2-rate.txt", "w")
 
 for i in range(1, maxIndex+1):
 	rtt = 0.0
 	end_time = 200
+	loss_rate = i * 0.001
 	
 	#fname = "~/tmp/pkt_" + str(i) + ".tr"
 	fname = "pkt_" + str(i) + ".tr"
 	for j in range(times):
 		#run simulator
-		cmd = 'ns rtt.tcl %s %d %f %dms %d' % (fname, end_time, 0.01, 100, random.randint(0, 100000000)) 
+		cmd = 'ns rtt.tcl %s %d %f %dms %d' % (fname, end_time, loss_rate, 100, random.randint(0, 100000000)) 
 		os.system(cmd)
 
 		#analyze the result

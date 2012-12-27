@@ -9,7 +9,7 @@ times = 50
 step = 10
 
 result = []
-outf = open("result.txt", "w")
+outf = open("2-time.txt", "w")
 
 for i in range(1, maxIndex+1):
 	rtt = 0.0
