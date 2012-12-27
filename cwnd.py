@@ -23,7 +23,7 @@ while True:
 		end = float(columns[1])
 		pkt_num += 1
 		if(float(columns[1]) > last + 0.1):
-			outf.write(str(count) + "\n")
+			outf.write(str(count) + "\t" + str(float(columns[1]) - last) + "\n")
 			#print str(count)
 			count = 1
 			last = float(columns[1])
@@ -36,5 +36,5 @@ print end
 print begin
 print pkt_num		
 begin = 1.8
-rtt = (end-begin) * (end - begin) * 3 / (2 * 0.001 * pkt_num * pkt_num)
+rtt = (end-begin) * (end - begin) * 3 / (2 * 0.01 * pkt_num * pkt_num)
 print rtt
